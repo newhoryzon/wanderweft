@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "adventurerspaths:block/dummy_block"
+      }
+    ]
+  }
+}

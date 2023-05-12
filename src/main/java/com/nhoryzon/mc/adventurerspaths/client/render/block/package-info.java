@@ -1,0 +1,1 @@
+package com.nhoryzon.mc.adventurerspaths.client.render.block;
