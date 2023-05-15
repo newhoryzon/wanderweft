@@ -5,7 +5,7 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
-archivesBaseName = archives_base_name
+archivesBaseName = mod_id
 group = project.maven_group
 version = mod_version
 
@@ -57,7 +57,9 @@ def devEnvDependencies(DependencyHandler deps) {
 
 processResources {
 	Map<String, String> properties = new HashMap<>()
-	properties.put("version", project.version)
+	properties.put("version", project.version.toString())
+	properties.put("archivesBaseName", archivesBaseName)
+
 	properties.put("loader_version", loader_version)
 	properties.put("fabric_version", fabric_version)
 	properties.put("minecraft_version", minecraft_version)
@@ -68,8 +70,8 @@ processResources {
 		expand properties
 	}
 
-	filesMatching("farmersdelight.mixins.json") {
-		expand "archivesBaseName": archivesBaseName
+	filesMatching("${mod_id}.mixins.json") {
+		expand properties
 	}
 }
 
