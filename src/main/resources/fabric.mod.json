@@ -1,33 +1,33 @@
 {
   "schemaVersion": 1,
-  "id": "adventurerspaths",
+  "id": "wanderweft",
   "version": "${version}",
-  "name": "Adventurers' Paths",
+  "name": "Wanderweft",
   "description": "Minecraft as RPG game!",
   "authors": [
     "Zifiv"
   ],
   "contact": {
-    "homepage": "https://github.com/newhoryzon/adventurers-paths",
-    "sources": "https://github.com/newhoryzon/adventurers-paths",
-    "issues": "https://jira.newhoryzon.fr/projects/AP/issues"
+    "homepage": "https://github.com/newhoryzon/wanderweft",
+    "sources": "https://github.com/newhoryzon/wanderweft",
+    "issues": "https://github.com/newhoryzon/wanderweft/issues"
   },
   "license": "MIT License",
-  "icon": "assets/adventurerspaths/icon.png",
+  "icon": "assets/wanderweft/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.nhoryzon.mc.adventurerspaths.AdventurersPathsMod"
+      "com.nhoryzon.mc.wanderweft.WanderweftMod"
     ],
     "client": [
-      "com.nhoryzon.mc.adventurerspaths.client.AdventurersPathsModClient"
+      "com.nhoryzon.mc.wanderweft.client.WanderweftModClient"
     ],
     "modmenu": [
-      "com.nhoryzon.mc.adventurerspaths.integration.modmenu.AdventurersPathsModMenu"
+      "com.nhoryzon.mc.wanderweft.integration.modmenu.WanderweftModMenu"
     ]
   },
   "mixins": [
-    "adventurerspaths.mixins.json"
+    "wanderweft.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
