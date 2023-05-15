@@ -1,0 +1,34 @@
+name: Translation issue
+description: If you found any translation issue or asking for a new translation to add
+labels: ["localization"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this translation issue!
+  - type: dropdown
+    id: lang
+    attributes:
+      label: Which language(s) ?
+      description: For which language(s) are you submitting this issue ?
+      options:
+        - en_US
+        - fr_FR
+        - new one
+    validations:
+      required: true
+  - type: textarea
+    id: json
+    attributes:
+      label: Language patch file
+      description: Please fill this with the contents you want to add/update of language JSON file (contains key/value association).
+      render: json
+      placeholder: |
+        {
+          "translation.key": "Translated value"
+        }
+  - type: textarea
+    id: precision
+    attributes:
+      label: Any precision ?
+      description: If you have another thing to say about this translation issue.

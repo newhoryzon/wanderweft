@@ -1,0 +1,16 @@
+name: Suggestion/Ideas
+description: If you have any suggestion or ideas to enhance the mod, feel free to use this form
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this suggestion report!
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What is your dreams feature(s) for the mod?
+      description: Let us know what you want for the mod!
+      placeholder: The more details you add, the faster the feature can be added to development workflow.
+    validations:
+      required: true

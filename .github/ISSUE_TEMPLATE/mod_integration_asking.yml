@@ -1,0 +1,39 @@
+name: Mod integration asking
+description: If you want a mod to have a special integration with ours, let us know
+labels: ["mod integration"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this mod integration asking!
+        
+        ---
+  - type: checkboxes
+    id: already-integrated
+    attributes:
+      label: Mods is already integrated ?
+      description: |
+        By submitting this issue, you have checked that the mod you asking for integration is already listed below.
+      options:
+        - label: I have checked the list below and I'm asking for integration that is not already added
+          required: true
+  - type: markdown
+    attributes:
+      value: |
+        *`Mod menu`* - *`Roughly Enough Items (REI)`* - *`Create`*
+        _For any bug report about one of these mods integrations, use the **[Bug report](https://github.com/newhoryzon/wanderweft/issues/new?assignees=&labels=bug&projects=&template=bug_report.yml)** form._
+        
+        ---
+
+  - type: input
+    id: mod
+    attributes:
+      label: Which mod
+      placeholder: Use the name that is displayed on CurseForge/Modrinth page of the mod
+    validations:
+      required: true
+  - type: textarea
+    id: precision
+    attributes:
+      label: Any precision ?
+      description: If you have another thing to say about this mod integration asking.
