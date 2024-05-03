@@ -2,6 +2,7 @@ package com.nhoryzon.mc.wanderweft.registry;
 
 import com.nhoryzon.mc.wanderweft.WanderweftMod;
 import com.nhoryzon.mc.wanderweft.common.item.ModBlockItem;
+import com.nhoryzon.mc.wanderweft.common.item.ModItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.item.Item;
@@ -12,9 +13,7 @@ import net.minecraft.util.Identifier;
 import java.util.Arrays;
 import java.util.function.Supplier;
 
-import static com.nhoryzon.mc.wanderweft.common.item.ModItemSettings.base;
-
-public enum ItemsRegistry {
+public enum ItemsRegistry implements IBaseRegistry<Item> {
 
     /* Block Items */
 
@@ -22,12 +21,16 @@ public enum ItemsRegistry {
 
     /* Items */
 
-    DUMMY_ITEM("dummy_item", () -> new Item(base()));
+    DUMMY_ITEM("dummy_item");
 
     private final String pathName;
     private final Supplier<Item> itemSupplier;
     private final Integer burnTime;
     private Item item;
+
+    ItemsRegistry(String pathName) {
+        this(pathName, () -> new Item(ModItemSettings.base()));
+    }
 
     ItemsRegistry(String pathName, Supplier<Item> itemSupplier) {
         this(pathName, itemSupplier, null);
@@ -50,6 +53,7 @@ public enum ItemsRegistry {
                 entries.addAll(Arrays.stream(values()).map(item -> item.get().getDefaultStack()).toList()));
     }
 
+    @Override
     public Item get() {
         if (item == null) {
             item = itemSupplier.get();
@@ -57,8 +61,14 @@ public enum ItemsRegistry {
         return item;
     }
 
+    @Override
     public String getId() {
         return Registries.ITEM.getId(get()).toString();
+    }
+
+    @Override
+    public int getRawId() {
+        return Registries.ITEM.getRawId(get());
     }
 
 }

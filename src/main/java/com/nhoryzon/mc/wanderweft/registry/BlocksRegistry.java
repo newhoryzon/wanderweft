@@ -16,7 +16,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.function.Supplier;
 
-public enum BlocksRegistry {
+public enum BlocksRegistry implements IBaseRegistry<Block> {
 
     DUMMY_BLOCK("dummy_block", () -> new Block(FabricBlockSettings.of(Material.WOOD).hardness(2.f).resistance(3.f).sounds(BlockSoundGroup.WOOD)));
 
@@ -68,6 +68,7 @@ public enum BlocksRegistry {
         }
     }
 
+    @Override
     public Block get() {
         if (block == null) {
             block = blockSupplier.get();
@@ -76,8 +77,13 @@ public enum BlocksRegistry {
         return block;
     }
 
+    @Override
     public String getId() {
         return Registries.BLOCK.getId(get()).toString();
     }
 
+    @Override
+    public int getRawId() {
+        return Registries.BLOCK.getRawId(get());
+    }
 }
